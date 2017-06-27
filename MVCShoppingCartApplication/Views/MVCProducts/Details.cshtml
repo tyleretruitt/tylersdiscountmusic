@@ -1,0 +1,133 @@
+﻿@model MVCShoppingData.MVCProduct
+
+@{
+    ViewBag.Title = "Details";
+}
+<div class="box">
+    <div class="row">
+
+        <div class="col-lg-12 text-center">
+            <h3>
+                @Html.DisplayFor(model => model.ProductName)
+            </h3>
+        </div>
+        
+        <div class="col-lg-6">
+            <img class="img-responsive" src="@Url.Content("~/ProductImages/" + Model.Image)" style="margin:2px auto; border-radius:20%;" />
+        </div>
+        <div class="col-lg-6 text-center">
+            <p style="font-size:3em; margin-top:35px;">
+                @Html.DisplayFor(model => model.Price)
+            </p>
+            <p style="font-size:2em;">
+                @Html.DisplayFor(model => model.MVCCategory.CategoryName)
+            </p>
+            <p>
+                @Html.DisplayFor(model => model.ProdDescription)
+            </p>
+            <p style="font-size:2.75em;">
+                @*@Html.DisplayFor(model => model.MVCVendor.VendorName)*@
+                <img width="300" src="@Url.Content("~/Content/Logos/" + Model.MVCVendor.Image)" />
+            </p>
+            <div class="col-xs-4">
+                @Html.ActionLink("Order Now", "OrderNow", "Shopping", new { id = Model.ProductID }, new { @class = "btn btn-success" })
+            </div>
+            <div class="col-xs-4">
+                <!-- #region Code for back to list button for multiple views -->
+
+                @if (Model.CategoryID == 5)
+                {
+                    @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-primary" })
+                }
+                else if (Model.CategoryID == 6)
+                {
+                    @Html.ActionLink("Back", "AcousticIndex", null, new { @class = "btn btn-primary" })
+                }
+                else if (Model.CategoryID == 7)
+                {
+                    @Html.ActionLink("Back", "BassIndex", null, new { @class = "btn btn-primary" })
+                }
+                else if (Model.CategoryID == 8)
+                {
+                    @Html.ActionLink("Back", "GuitarAmpIndex", null, new { @class = "btn btn-primary" })
+                }
+                else if (Model.CategoryID == 9)
+                {
+                    @Html.ActionLink("Back", "DrumIndex", null, new { @class = "btn btn-primary" })
+                }
+                else if (Model.CategoryID == 10)
+                {
+                    @Html.ActionLink("Back", "GuitarAccessoriesIndex", null, new { @class = "btn btn-primary" })
+                }
+                else if (Model.CategoryID == 11)
+                {
+                    @Html.ActionLink("Back", "ProAudioIndex", null, new { @class = "btn btn-primary" })
+                }
+                else if (Model.CategoryID == 12)
+                {
+                    @Html.ActionLink("Back", "BassAmpIndex", null, new { @class = "btn btn-primary" })
+                }
+                else if (Model.CategoryID == 13)
+                {
+                    @Html.ActionLink("Back", "GuitarAmpHeadIndex", null, new { @class = "btn btn-primary" })
+                }
+                else if (Model.CategoryID == 14)
+                {
+                    @Html.ActionLink("Back", "BassAmpIndex", null, new { @class = "btn btn-primary" })
+                }
+                else if (Model.CategoryID == 15)
+                {
+                    @Html.ActionLink("Back", "ElectronicDrumIndex", null, new { @class = "btn btn-primary" })
+                }
+                else if (Model.CategoryID == 16)
+                {
+                    @Html.ActionLink("Back", "DrumAccessoriesIndex", null, new { @class = "btn btn-primary" })
+                }
+                else if (Model.CategoryID == 18)
+                {
+                    @Html.ActionLink("Back", "StudioMonitorIndex", null, new { @class = "btn btn-primary" })
+                }
+                else if (Model.CategoryID == 19)
+                {
+                    @Html.ActionLink("Back", "SoftwareIndex", null, new { @class = "btn btn-primary" })
+                }
+                else if (Model.CategoryID == 20)
+                {
+                    @Html.ActionLink("Back", "CablesIndex", null, new { @class = "btn btn-primary" })
+                }
+                else if (Model.CategoryID == 21)
+                {
+                    @Html.ActionLink("Back", "MicPreampIndex", null, new { @class = "btn btn-primary" })
+                }
+                else if (Model.CategoryID == 22)
+                {
+                    @Html.ActionLink("Back", "UsedGearIndex", null, new { @class = "btn btn-primary" })
+                }
+                else if (Model.CategoryID == 23)
+                {
+                    @Html.ActionLink("Back", "ElectronicDrumAmpIndex", null, new { @class = "btn btn-primary" })
+                }
+                else
+                {
+                    @Html.ActionLink("Back", "Index", null, new { @class = "btn btn-primary" })
+                }
+
+
+
+
+
+
+                <!-- #endregion -->
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
+    </p>
+}
+

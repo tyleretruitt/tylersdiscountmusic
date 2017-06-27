@@ -1,0 +1,84 @@
+﻿@{
+    ViewBag.Title = "hi this is shopping cart example";
+}
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
+<style>
+    #droppable {
+        width: 400px;
+        height: 150px;
+        padding: 2.0em;
+        float: right;
+        margin: 20px;
+    }
+</style>
+<script>
+
+    var totalItem = 0;
+    $(function () {
+        $(".ui-widget-content").draggable({
+            appendTo: "body",
+            helper: "clone"
+        });
+        $("#shoppingcart").droppable({
+            drop: function (event, ui) {
+                totalItem = parseInt(totalItem) + 1
+                $("#totalitem").html("total item add by you in cart=: " + totalItem);
+
+            }
+        });
+    });
+</script>
+
+<div id="items" style="width: 1000px">
+    <div style="text-align: center; float: left; width: 150px; height: 120px;" class="ui-widget-content">
+        <img src="../../Images/tshirt.png" />
+        <br />
+        <b><span>T shirt</span></b>
+    </div>
+    <div style="text-align: center; float: left; width: 150px; height: 120px;" class="ui-widget-content">
+        <img src="../../Images/books.png" />
+        <br />
+        <b><span>Books</span></b>
+    </div>
+    <div style="text-align: center; float: left; width: 150px; height: 120px;" class="ui-widget-content">
+        <img src="../../Images/coldrinks.png" />
+        <br />
+        <b><span>coldrinks</span></b>
+    </div>
+    <div style="text-align: center; float: left; width: 150px; height: 120px;" class="ui-widget-content">
+        <img src="../../Images/crockery.png" />
+        <br />
+        <b><span>Crockery</span></b>
+    </div>
+    <div style="text-align: center; float: left; width: 150px; height: 120px;" class="ui-widget-content">
+        <img src="../../Images/mobile.png" />
+        <br />
+        <b><span>Mobile</span></b>
+    </div>
+    <div style="text-align: center; float: left; width: 150px; height: 120px;" class="ui-widget-content">
+        <img src="../../Images/sandels.png" />
+        <br />
+        <b><span>Sandels</span></b>
+    </div>
+
+    <div id="items" style="width: 1000px">
+        <div style="text-align: center; float: left; width: 150px; height: 120px;" class="ui-widget-content">
+            <img src="../../Images/sports.png" />
+            <br />
+            <b><span>Sports goods</span></b>
+        </div>
+        <div style="text-align: center; float: left; width: 150px; height: 120px;" class="ui-widget-content">
+            <img src="../../Images/tv.png" />
+            <br />
+            <b><span>Telivisions</span></b>
+        </div>
+    </div>
+
+    <div id="shoppingcart">
+
+        <img src="../../Images/cart.png" /><br />
+
+        <b><span id="totalitem" style="color:red"></span></b>
+    </div>

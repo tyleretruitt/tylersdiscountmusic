@@ -1,0 +1,109 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@*<div>
+        <img style="margin:0 auto;" class="img-responsive" width="700" src="~/Content/fulllogo.png" />
+    </div>*@
+<div class="box">
+    @*<h2 class="text-center">Credits</h2>*@
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="text-center">Thank You For Visiting Tyler's Discount Music!</h2>
+            <p style="width:70%; margin:10px auto;">
+                My name is Tyler Truitt and I am a developer.  This project I designed with ASP.NET M.V.C 5 using Entity Framework.
+                The database I configured in SQL Server Managment Studio 2012 using a four table datastucture.  I chose to do this shopping cart application on a music store because I am a musician, and I
+                believed that that itself would benefit the creativity of the project.  This was the first time that I have built this type of application, and it will not be the last.
+            </p>
+
+            <div class="col-lg-12">
+                <div class="text-center">
+
+                    <img src="~/Content/TylerWestPalmBeachComic.jpg" style="width:60%; border-radius:20%;" />
+
+
+                </div>
+
+
+                <p style="width:80%; margin:10px auto;">
+                    I believe that I have learned a lot while working on this application.  Prior to this I have built a few two tier projects which can be viewed at <a href="http://www.trucoding.com/Home/Projects/">this link</a>;
+                    however, I have not built the shopping cart application with ASP.NET M.V.C 5.  Previously I have done a ticket tracking system, resembling a screen printing shop and orders, but never the shopping cart functionality
+                    with Model View Controller technology.
+                </p>
+                <div class="text-center">
+                    <img src="~/Content/finalLogo.png" style="width:60%;" />
+                    <img src="~/Content/GuitarStore.jpg" style="width:70%;" />
+
+
+                </div>
+                <p style="width:80%; margin:10px auto;">
+                    The languages that I used were Razor HTML, Bootstrap CSS, jQuery, Linq, SQL and of Course C#.  I put a great deal of time not only into the server-side functionality, put also into the styling of the page.
+                    The responsiveness of the webpage was programmed with Bootstrap CSS as well as media queries.  I did not bring in a template, I styled this one completely on my own.  I brought in a logo I designed on photoshop,
+                    and adjusted all the necessary CSS to style the page to fit the design of a music store.
+                </p>
+                <div style="width:75%; margin:10px auto;">
+                    <img style="width:100%; border-radius:20%;" src="~/Content/CreditLogos/Capture.jpg" />
+                </div>
+                <p style="width:80%; margin:10px auto;">
+                    Along with server-side sorting, paging, and search, many various Razor statements were programmed to give a very clean nagivation between webpages.  Alot of Object Oriented Programming concepts I had to learn in order to
+                    have the program do the necessary functionality, but I used a few resources to help guide me.  They can be viewed on my <a href="@Url.Action("Credits","Home")">Credits Page</a>.
+                </p>
+
+            </div>
+
+            @*<p style="width:70%; margin:10px auto;">
+                    When I was building out my views of the the specific products, I discovered that in a tile view the height of the webpage would grow with the number of entries.  I needed server side paging to stop this issue,
+                    and this article provides a great example of server-side sorting and paging in C#.
+                </p>*@
+
+        </div>
+    </div>
+</div>
+@*<div class="row">
+        <div class="col-lg-12">
+            <div>
+                <div class="box">
+                    <p>
+                        Thank You for visting Tyler's Discount Music.  My name is Tyler Truitt and I am a developer.  This project I designed with ASP.NET M.V.C 5 using Entity Framework.
+                        The database I configured in SQL Server Managment Studio 2012 using a four table datastucture.  I chose to do this shopping cart application on a music store because I am a musician, and I
+                        believed that that itself would benefit the creativity of the project.  This was the first time that I have built this type of application, and it will not be the last.
+                    </p>
+
+                    <div style=" width:70%; margin:0 auto;">
+                        <img style="width:100%;" src="~/Content/CreditLogos/Capture.jpg" />
+                    </div>
+                </div>
+                <div class="box">
+                    <p>
+                        I believed that I have learned a lot while working on this application.  Prior to this I have built a few two tier projects whichcan be viewed at <a href="http://www.trucoding.com/Home/Projects/">this link</a>;
+                        however, I have not built the shopping cart application with ASP.NET M.V.C 5.  Previously I have done a ticket tracking system, resembling a screen printing shop and orders, but never the shopping cart functionality
+                        with Model View Controller technology.
+                    </p>
+
+                </div>
+                <div class="box">
+                    <div style=" width:50%; margin:0 auto;">
+                        <img style="width:100%;" src="~/Content/CreditLogos/IndexExample.jpg" />
+                    </div>
+                    <p>
+                        The languages that I used were Razor HTML, Bootstrap CSS, jQuery, Linq, SQL and of Course C#.  I put a great deal of time not only into the server-side functionality, put also into the styling of the page.
+                        The responsiveness of the webpage was programmed with Bootstrap CSS as well as media queries.  I did not bring in a template, I styled this one completely on my own.  I brought in a logo I designed on photoshop,
+                        and adjusted all the necessary CSS to style the page to fit the design of a music store.
+                    </p>
+                </div>
+
+                <div class="box">
+                    <div style=" width:70%; margin:0 auto;">
+                        <img style="width:100%;" src="~/Content/CreditLogos/RazorDetailsView.jpg" />
+                    </div>
+                    <p>
+                        Along with server-side sorting, paging, and search, many various Razor statements were programmed to give a very clean nagivation between webpages.  Alot of Object Oriented Programming concepts I had to learn in order to
+                        have the program do the neccessary functionality, but I used a few resources to help guide me.  They can be viewed on my <a href="@Url.Action("Credits","Home")">Credits Page</a>.
+                    </p>
+                </div>
+
+
+            </div>
+        </div>
+    </div>*@
+

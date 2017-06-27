@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MVCShoppingCartModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="MVCCategories">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CategoryName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="CategoryDescription" Type="varchar" MaxLength="500" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MVCProducts">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductName" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="ProdDescription" Type="varchar(max)" />
+    <Property Name="Price" Type="money" Nullable="false" />
+    <Property Name="ModelNumber" Type="varchar" MaxLength="25" />
+    <Property Name="Image" Type="varchar" MaxLength="100" />
+    <Property Name="LastUpdated" Type="datetime" Nullable="false" />
+    <Property Name="CategoryID" Type="int" />
+    <Property Name="StatusID" Type="int" Nullable="false" />
+    <Property Name="VendorID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MVCStatuses">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="StatusName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="StatusDescription" Type="varchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="MVCVendors">
+    <Key>
+      <PropertyRef Name="VendorID" />
+    </Key>
+    <Property Name="VendorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="VendorName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Image" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="WebsiteURL" Type="varchar" MaxLength="400" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_MVCProducts_MVCCategories">
+    <End Role="MVCCategories" Type="Self.MVCCategories" Multiplicity="0..1" />
+    <End Role="MVCProducts" Type="Self.MVCProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MVCCategories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="MVCProducts">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MVCProducts_MVCStatuses">
+    <End Role="MVCStatuses" Type="Self.MVCStatuses" Multiplicity="1" />
+    <End Role="MVCProducts" Type="Self.MVCProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MVCStatuses">
+        <PropertyRef Name="StatusID" />
+      </Principal>
+      <Dependent Role="MVCProducts">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MVCProducts_MVCVendors">
+    <End Role="MVCVendors" Type="Self.MVCVendors" Multiplicity="1" />
+    <End Role="MVCProducts" Type="Self.MVCProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MVCVendors">
+        <PropertyRef Name="VendorID" />
+      </Principal>
+      <Dependent Role="MVCProducts">
+        <PropertyRef Name="VendorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MVCShoppingCartModelStoreContainer">
+    <EntitySet Name="MVCCategories" EntityType="Self.MVCCategories" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MVCProducts" EntityType="Self.MVCProducts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MVCStatuses" EntityType="Self.MVCStatuses" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MVCVendors" EntityType="Self.MVCVendors" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_MVCProducts_MVCCategories" Association="Self.FK_MVCProducts_MVCCategories">
+      <End Role="MVCCategories" EntitySet="MVCCategories" />
+      <End Role="MVCProducts" EntitySet="MVCProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MVCProducts_MVCStatuses" Association="Self.FK_MVCProducts_MVCStatuses">
+      <End Role="MVCStatuses" EntitySet="MVCStatuses" />
+      <End Role="MVCProducts" EntitySet="MVCProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MVCProducts_MVCVendors" Association="Self.FK_MVCProducts_MVCVendors">
+      <End Role="MVCVendors" EntitySet="MVCVendors" />
+      <End Role="MVCProducts" EntitySet="MVCProducts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

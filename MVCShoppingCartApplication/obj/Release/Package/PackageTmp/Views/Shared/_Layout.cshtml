@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html class="full">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="@Url.Action("Index","Home")">
+                    <img style="max-width:250px; "
+                         src="~/Content/finalLogo.png" />
+                </a>
+                @*@Html.ActionLink("Tyler's Discount Music", "Index", "Home", null, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav nav navbar-nav navbar-right">
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Guitars
+                            <span class="caret"></span>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="@Url.Action("Index","MVCProducts")">Electric Guitars</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("AcousticIndex","MVCProducts")">Acoustic Guitars</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("BassIndex","MVCProducts")">Bass Guitars</a>
+                                </li>
+
+                            </ul>
+                        </a>
+                    </li>
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Drums
+                            <span class="caret"></span>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="@Url.Action("DrumIndex", "MVCProducts")">Acoustic Drums Sets</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ElectronicDrumIndex", "MVCProducts")">Electronic Drums Sets</a>
+                                </li>
+
+                                <li>
+                                    <a href="@Url.Action("DrumAccessoriesIndex","MVCProducts")">Drum Accessories</a>
+                                </li>
+                            </ul>
+                        </a>
+                    </li>
+                    <li class="dropdown">
+                        <a call="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Audio
+                            <span class="caret"></span>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="@Url.Action("MicPreampIndex","MVCProducts")">Mic Preamps</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("GuitarAmpIndex","MVCProducts")">Guitar Amplifiers</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("BassAmpIndex","MVCProducts")">Bass Amplifiers</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("ElectronicDrumAmpIndex", "MVCProducts")">Electronic Drum Amplifiers</a>
+                                </li>
+                                <li>
+                                    <a href="@Url.Action("StudioMonitorIndex", "MVCProducts")">Studio Monitors</a>
+                                </li>
+                            </ul>
+                        </a>
+
+                    </li>
+
+
+                    <li>
+                        <a href="@Url.Action("StaticCart","Shopping")">View Cart</a>
+                    </li>
+
+
+
+                    <li>
+                        <a href="@Url.Action("Credits","Home")">Credits</a>
+                    </li>
+                    @*<li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            <li>@Html.ActionLink("RolesAdmin", "Index", "RolesAdmin")</li>
+                            <li>@Html.ActionLink("UsersAdmin", "Index", "UsersAdmin")</li>
+                        }*@
+                </ul>
+                @*@Html.Partial("_LoginPartial")*@
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <div class="row box">
+
+
+            <div class="col-lg-12 text-center">
+                <div class="col-lg-3 col-xs-6 text-center"><img src="~/Content/Logos/ErnieBallLogo.png" width="70%;" /></div>
+                <div class="col-lg-3 col-xs-6 text-center"><img src="~/Content/Logos/FenderLogo.png" width="60%;" /></div>
+                <div class="col-lg-3 col-xs-6 text-center"><img src="~/Content/Logos/GibsonLogo.png" width="50%;" /></div>
+                <div class="col-lg-3 col-xs-6 text-center"><img src="~/Content/Logos/LudwigLogo.png" width="70%;" /></div>
+
+            </div>
+            <br />
+            <div class="clearfix"></div>
+            <div class="col-xs-12 text-center">
+
+                <p>&copy; @DateTime.Now.Year - Tyler Truitt Web Design</p>
+
+            </div>
+        </div>
+    </div>
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

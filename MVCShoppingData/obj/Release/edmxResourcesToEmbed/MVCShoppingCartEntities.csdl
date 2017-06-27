@@ -1,0 +1,105 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MVCShoppingCartModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="MVCCategory">
+    <Key>
+      <PropertyRef Name="CategoryID" />
+    </Key>
+    <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CategoryDescription" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="MVCProducts" Relationship="Self.FK_MVCProducts_MVCCategories" FromRole="MVCCategories" ToRole="MVCProducts" />
+  </EntityType>
+  <EntityType Name="MVCProduct">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductName" Type="String" MaxLength="250" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProdDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ModelNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="LastUpdated" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="CategoryID" Type="Int32" />
+    <Property Name="StatusID" Type="Int32" Nullable="false" />
+    <Property Name="VendorID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="MVCCategory" Relationship="Self.FK_MVCProducts_MVCCategories" FromRole="MVCProducts" ToRole="MVCCategories" />
+    <NavigationProperty Name="MVCStatus" Relationship="Self.FK_MVCProducts_MVCStatuses" FromRole="MVCProducts" ToRole="MVCStatuses" />
+    <NavigationProperty Name="MVCVendor" Relationship="Self.FK_MVCProducts_MVCVendors" FromRole="MVCProducts" ToRole="MVCVendors" />
+  </EntityType>
+  <EntityType Name="MVCStatus">
+    <Key>
+      <PropertyRef Name="StatusID" />
+    </Key>
+    <Property Name="StatusID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="StatusName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="StatusDescription" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="MVCProducts" Relationship="Self.FK_MVCProducts_MVCStatuses" FromRole="MVCStatuses" ToRole="MVCProducts" />
+  </EntityType>
+  <EntityType Name="MVCVendor">
+    <Key>
+      <PropertyRef Name="VendorID" />
+    </Key>
+    <Property Name="VendorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="VendorName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Image" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="WebsiteURL" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="MVCProducts" Relationship="Self.FK_MVCProducts_MVCVendors" FromRole="MVCVendors" ToRole="MVCProducts" />
+  </EntityType>
+  <Association Name="FK_MVCProducts_MVCCategories">
+    <End Role="MVCCategories" Type="Self.MVCCategory" Multiplicity="0..1" />
+    <End Role="MVCProducts" Type="Self.MVCProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MVCCategories">
+        <PropertyRef Name="CategoryID" />
+      </Principal>
+      <Dependent Role="MVCProducts">
+        <PropertyRef Name="CategoryID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MVCProducts_MVCStatuses">
+    <End Role="MVCStatuses" Type="Self.MVCStatus" Multiplicity="1" />
+    <End Role="MVCProducts" Type="Self.MVCProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MVCStatuses">
+        <PropertyRef Name="StatusID" />
+      </Principal>
+      <Dependent Role="MVCProducts">
+        <PropertyRef Name="StatusID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MVCProducts_MVCVendors">
+    <End Role="MVCVendors" Type="Self.MVCVendor" Multiplicity="1" />
+    <End Role="MVCProducts" Type="Self.MVCProduct" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MVCVendors">
+        <PropertyRef Name="VendorID" />
+      </Principal>
+      <Dependent Role="MVCProducts">
+        <PropertyRef Name="VendorID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MVCShoppingCartEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="MVCCategories" EntityType="Self.MVCCategory" />
+    <EntitySet Name="MVCProducts" EntityType="Self.MVCProduct" />
+    <EntitySet Name="MVCStatuses" EntityType="Self.MVCStatus" />
+    <EntitySet Name="MVCVendors" EntityType="Self.MVCVendor" />
+    <AssociationSet Name="FK_MVCProducts_MVCCategories" Association="Self.FK_MVCProducts_MVCCategories">
+      <End Role="MVCCategories" EntitySet="MVCCategories" />
+      <End Role="MVCProducts" EntitySet="MVCProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MVCProducts_MVCStatuses" Association="Self.FK_MVCProducts_MVCStatuses">
+      <End Role="MVCStatuses" EntitySet="MVCStatuses" />
+      <End Role="MVCProducts" EntitySet="MVCProducts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MVCProducts_MVCVendors" Association="Self.FK_MVCProducts_MVCVendors">
+      <End Role="MVCVendors" EntitySet="MVCVendors" />
+      <End Role="MVCProducts" EntitySet="MVCProducts" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,94 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #b94a48;
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #b94a48;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #b94a48;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+div.buttonMargin{
+    margin: 10px;
+}
+/*Cusom*/
+div.box{
+    padding:10px;
+    background-color: rgba(9, 8, 8, 0.63);
+    margin-bottom:10px;
+}
+div.floatRight{
+    float:right;
+}
+div.inlineBlock{
+    display:inline-block;
+}
+@media (max-midth:525px){
+    div.inlineBlock{
+        display:block;
+    }
+}
+.video-container {
+position: relative;
+padding-bottom: 56.25%;
+padding-top: 30px; height: 0; overflow: hidden;
+}
+ 
+.video-container iframe,
+.video-container object,
+.video-container embed {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+.thumbnail img {
+    max-height: 100%;
+    max-width: 100%;
+}
+@media (min-width:753px){
+    table{
+        font-size: 1em;
+        
+    }
+} 
+@media (max-width:515px){
+    table{
+        font-size:.75em;
+        
+    }
+} 
+

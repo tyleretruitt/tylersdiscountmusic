@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7b67f19563b8492b9ce53ca9315c8807" Name="Diagram1">
+        <EntityTypeShape EntityType="MVCShoppingCartModel.MVCCategory" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCShoppingCartModel.MVCProduct" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCShoppingCartModel.MVCStatus" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="MVCShoppingCartModel.MVCVendor" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="MVCShoppingCartModel.FK_MVCProducts_MVCCategories" ManuallyRouted="false" />
+        <AssociationConnector Association="MVCShoppingCartModel.FK_MVCProducts_MVCStatuses" ManuallyRouted="false" />
+        <AssociationConnector Association="MVCShoppingCartModel.FK_MVCProducts_MVCVendors" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

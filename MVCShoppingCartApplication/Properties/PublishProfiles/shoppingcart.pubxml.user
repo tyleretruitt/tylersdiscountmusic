@@ -1,0 +1,386 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <_PublishTargetUrl>ftp://ftp.mysitepanel.net/shoppingcart</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>04/14/2017 15:12:12</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>04/14/2017 15:12:18</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>04/14/2017 15:12:18</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Core.dll">
+      <publishTime>04/14/2017 15:12:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.EntityFramework.dll">
+      <publishTime>04/14/2017 15:12:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.AspNet.Identity.Owin.dll">
+      <publishTime>04/14/2017 15:12:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>04/14/2017 15:12:26</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.dll">
+      <publishTime>04/14/2017 15:12:23</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Host.SystemWeb.dll">
+      <publishTime>04/14/2017 15:12:23</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Cookies.dll">
+      <publishTime>04/14/2017 15:12:23</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.dll">
+      <publishTime>04/14/2017 15:12:23</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Facebook.dll">
+      <publishTime>04/14/2017 15:12:23</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Google.dll">
+      <publishTime>04/14/2017 15:12:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.MicrosoftAccount.dll">
+      <publishTime>04/14/2017 15:12:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.OAuth.dll">
+      <publishTime>04/14/2017 15:12:23</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Owin.Security.Twitter.dll">
+      <publishTime>04/14/2017 15:12:24</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>04/14/2017 15:12:12</publishTime>
+    </File>
+    <File Include="bin/MVCShoppingCartApplication.dll">
+      <publishTime>04/21/2017 20:09:42</publishTime>
+    </File>
+    <File Include="bin/MVCShoppingData.dll">
+      <publishTime>04/21/2017 20:09:41</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>04/14/2017 15:12:15</publishTime>
+    </File>
+    <File Include="bin/Owin.dll">
+      <publishTime>04/14/2017 15:12:22</publishTime>
+    </File>
+    <File Include="bin/PagedList.dll">
+      <publishTime>04/16/2017 12:09:39</publishTime>
+    </File>
+    <File Include="bin/PagedList.Mvc.dll">
+      <publishTime>04/16/2017 12:09:40</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>04/14/2017 15:12:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>04/14/2017 15:12:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>04/14/2017 15:12:25</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>04/14/2017 15:12:25</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>04/14/2017 15:12:25</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>04/14/2017 15:12:25</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>04/14/2017 15:12:25</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>04/14/2017 15:12:25</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>04/14/2017 15:12:25</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>04/14/2017 15:12:25</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>04/14/2017 15:12:25</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>04/14/2017 15:12:25</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>04/14/2017 15:12:11</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>04/14/2017 15:12:12</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>04/14/2017 15:12:11</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>04/14/2017 15:12:11</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>04/14/2017 15:12:11</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>04/14/2017 15:12:11</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>04/14/2017 15:12:11</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>04/14/2017 15:12:13</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>04/20/2017 23:59:24</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>04/14/2017 15:12:00</publishTime>
+    </File>
+    <File Include="Content/CreditLogos/AllLogos.png">
+      <publishTime>04/20/2017 18:49:25</publishTime>
+    </File>
+    <File Include="Content/CreditLogos/bootstrap-logo.jpg">
+      <publishTime>04/20/2017 18:39:04</publishTime>
+    </File>
+    <File Include="Content/CreditLogos/Capture.jpg">
+      <publishTime>04/21/2017 00:14:45</publishTime>
+    </File>
+    <File Include="Content/CreditLogos/Capture2.jpg">
+      <publishTime>04/21/2017 00:28:47</publishTime>
+    </File>
+    <File Include="Content/CreditLogos/CSharpLogo.png">
+      <publishTime>04/20/2017 18:50:48</publishTime>
+    </File>
+    <File Include="Content/CreditLogos/IndexExample.jpg">
+      <publishTime>04/21/2017 17:52:25</publishTime>
+    </File>
+    <File Include="Content/CreditLogos/LinqLogo.png">
+      <publishTime>04/20/2017 18:39:14</publishTime>
+    </File>
+    <File Include="Content/CreditLogos/MVCLogo.png">
+      <publishTime>04/20/2017 18:51:52</publishTime>
+    </File>
+    <File Include="Content/CreditLogos/ph.png">
+      <publishTime>04/20/2017 18:48:48</publishTime>
+    </File>
+    <File Include="Content/CreditLogos/photoshop.png">
+      <publishTime>04/20/2017 18:39:14</publishTime>
+    </File>
+    <File Include="Content/CreditLogos/RazorDetailsView.jpg">
+      <publishTime>04/21/2017 17:52:12</publishTime>
+    </File>
+    <File Include="Content/CreditLogos/SMMSLogo.png">
+      <publishTime>04/20/2017 18:39:14</publishTime>
+    </File>
+    <File Include="Content/CreditLogos/SortingPaging.jpg">
+      <publishTime>04/21/2017 00:14:01</publishTime>
+    </File>
+    <File Include="Content/CreditLogos/sql.png">
+      <publishTime>04/20/2017 18:55:11</publishTime>
+    </File>
+    <File Include="Content/CreditLogos/VisualStudioLogo.png">
+      <publishTime>04/20/2017 18:39:14</publishTime>
+    </File>
+    <File Include="Content/finalLogo.png">
+      <publishTime>04/18/2017 23:32:02</publishTime>
+    </File>
+    <File Include="Content/full.css">
+      <publishTime>04/18/2017 15:19:51</publishTime>
+    </File>
+    <File Include="Content/fulllogo.png">
+      <publishTime>04/18/2017 23:21:52</publishTime>
+    </File>
+    <File Include="Content/guitarlogoedit.png">
+      <publishTime>04/18/2017 23:10:14</publishTime>
+    </File>
+    <File Include="Content/Logos/AlesisLogo.jpg">
+      <publishTime>04/21/2017 13:42:33</publishTime>
+    </File>
+    <File Include="Content/Logos/AlesisLogo.png">
+      <publishTime>04/21/2017 14:04:59</publishTime>
+    </File>
+    <File Include="Content/Logos/AmpegLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/AshdownLogo.jpg">
+      <publishTime>04/21/2017 13:42:33</publishTime>
+    </File>
+    <File Include="Content/Logos/AshdownLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/BCRichLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/BugeraLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/DAddarioLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/ddrum.jpg">
+      <publishTime>04/21/2017 13:42:33</publishTime>
+    </File>
+    <File Include="Content/Logos/DDrumLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/DeanLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/DWDrumsLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/EgnaterLogo.jpg">
+      <publishTime>04/21/2017 13:42:33</publishTime>
+    </File>
+    <File Include="Content/Logos/EgnaterLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/EpiphoneLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/ErnieBallLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/ESPLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/FenderLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/GAndLLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/GibsonLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/GretschLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/GuildLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/IbanezLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/JacksonLogo.ong.png">
+      <publishTime>04/21/2017 13:42:36</publishTime>
+    </File>
+    <File Include="Content/Logos/JacksonLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/Line6Logo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/LudwigLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/MapexLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/MarkBassLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/MarshallLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/MartinAndCoLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/noimage.png">
+      <publishTime>04/20/2017 00:35:33</publishTime>
+    </File>
+    <File Include="Content/Logos/OrangeLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/PearlLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/PeaveyLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/PorkPieLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/RickenbackerLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/RolandLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/SchecterLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/SeagullLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/SimmonsLogo.jpg">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/SimmonsLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/SquireLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/TamaLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/TaylorLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/VOXLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/WashburnLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/Logos/YamahaLogo.png">
+      <publishTime>04/21/2017 14:05:01</publishTime>
+    </File>
+    <File Include="Content/logoWords.png">
+      <publishTime>04/18/2017 23:18:19</publishTime>
+    </File>
+    <File Include="Content/PagedList.css">
+      <publishTime>04/16/2017 12:09:41</publishTime>
+    </File>
+    <File Include="Content/ShoppingPage/css/shop-homepage.css">
+      <publishTime>04/19/2017 21:39:06</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>04/20/2017 16:42:19</publishTime>
+    </File>
+    <File Include="Content/SortingPaging.jpg">
+      <publishTime>04/20/2017 16:56:10</publishTime>
+    </File>
+    <File Include="Content/vintage.jpg">
+      <publishTime>04/18/2017 15:17:27</publishTime>
+    </File>
+    <File Include="Content/wordsOfLogo.png">
+      <publishTime>04/18/2017 23:16:26</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>04/14/2017 15:12:00</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>04/14/2017 15:12:00</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>04/14/2017 15:12:00</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>04/14/2017 15:12:00</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>04/21/2017 20:09:47</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

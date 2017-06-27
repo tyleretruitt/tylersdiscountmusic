@@ -1,0 +1,10 @@
+C:\Users\Student\Documents\Visual Studio 2015\Projects\MVCShoppingCartApplication\MVCShoppingData\bin\Debug\MVCShoppingData.dll.config
+C:\Users\Student\Documents\Visual Studio 2015\Projects\MVCShoppingCartApplication\MVCShoppingData\bin\Debug\MVCShoppingData.dll
+C:\Users\Student\Documents\Visual Studio 2015\Projects\MVCShoppingCartApplication\MVCShoppingData\bin\Debug\MVCShoppingData.pdb
+C:\Users\Student\Documents\Visual Studio 2015\Projects\MVCShoppingCartApplication\MVCShoppingData\bin\Debug\EntityFramework.dll
+C:\Users\Student\Documents\Visual Studio 2015\Projects\MVCShoppingCartApplication\MVCShoppingData\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Student\Documents\Visual Studio 2015\Projects\MVCShoppingCartApplication\MVCShoppingData\bin\Debug\EntityFramework.xml
+C:\Users\Student\Documents\Visual Studio 2015\Projects\MVCShoppingCartApplication\MVCShoppingData\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Student\Documents\Visual Studio 2015\Projects\MVCShoppingCartApplication\MVCShoppingData\obj\Debug\MVCShoppingData.csprojResolveAssemblyReference.cache
+C:\Users\Student\Documents\Visual Studio 2015\Projects\MVCShoppingCartApplication\MVCShoppingData\obj\Debug\MVCShoppingData.dll
+C:\Users\Student\Documents\Visual Studio 2015\Projects\MVCShoppingCartApplication\MVCShoppingData\obj\Debug\MVCShoppingData.pdb
