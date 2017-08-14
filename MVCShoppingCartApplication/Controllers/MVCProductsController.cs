@@ -13,24 +13,26 @@ namespace MVCShoppingCartApplication.Controllers
 {
     public class MVCProductsController : Controller
     {
+        //private readonly access to the database
         private MVCShoppingCartEntities db = new MVCShoppingCartEntities();
 
 
         // GET: MVCProducts
-
-
         #region project index views
+        //Accepts parameters for the paging and sorting functionality
         public ActionResult Index(string sortOrder, string currentFilter, string searchString, int? page)
         {
+            //Viewbag statements to enable server side sorting
             ViewBag.CurrentSort = sortOrder;
-            ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
+            ViewBag.NameSortParm = string.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
-
+            //if the search bar is blank automatically default to the first page
             if (searchString != null)
             {
                 page = 1;
             }
+            //filter the search bar
             else
             {
                 searchString = currentFilter;
@@ -38,17 +40,18 @@ namespace MVCShoppingCartApplication.Controllers
 
             ViewBag.CurrentFilter = searchString;
 
-            
+            //LINQ statement to select all of the products from the database
             var products = from s in db.MVCProducts
                            select s;
-
-            if (!String.IsNullOrEmpty(searchString))
+            //if the search bar has a value input then show products that contain that search string in the Product Name
+            if (!string.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.ProductName.Contains(searchString));
             }
-            
+            //button functionality for 'Order By Name' and 'Order By Price'
             switch (sortOrder)
             {
+                //Category ID must equal 5 due to that being the guitar category
                 case "name_desc":
                     products = products.Where(y => y.CategoryID == 5).OrderByDescending(s => s.ProductName);
                     break;
@@ -68,8 +71,11 @@ namespace MVCShoppingCartApplication.Controllers
                     products = products.Where(y => y.CategoryID == 5).OrderBy(s => s.ProductName);
                     break;
             }
+            //determines number of items on each page
             int pageSize = 3;
+            //defaults the pager to the first page
             int pageNumber = (page ?? 1);
+            //returns only the products with the category id of 5
             return View(products.Where(r => r.CategoryID == 5).ToPagedList(pageNumber, pageSize));
 
         }
@@ -77,51 +83,34 @@ namespace MVCShoppingCartApplication.Controllers
         public ActionResult ElectronicDrumAmpIndex(string sortOrder, string currentFilter, string searchString, int? page)
         {
 
-            //ViewBag.Category = String.IsNullOrEmpty(categoryChange);
-            //ViewBag.ElectricGuitars = categoryChange == "ElectricGuitars";
-            //ViewBag.AcousticGuitars = categoryChange == "AcousticGuitars";
-
-
-
-            //var mVCProducts = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //return View(mVCProducts.ToList());
+            //Viewbag statements to enable server side sorting
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
-
+            //if the search bar is blank automatically default to the first page
             if (searchString != null)
             {
                 page = 1;
             }
+            //filter the search bar
             else
             {
                 searchString = currentFilter;
             }
-
             ViewBag.CurrentFilter = searchString;
-
+            //LINQ statement to select all of the products from the database
             var products = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //var products = from s in db.MVCProducts
-            //               select s;
-
+            //if the search bar has a value input then show products that contain that search string in the Product Name
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.ProductName.Contains(searchString));
             }
 
-            //switch (categoryChange)
-            //{
-            //    case "ElectricGuitars":
-            //        products = products.Where(y => y.CategoryID == 5);
-            //        break;
-            //    case "AcousticGuitars":
-            //        products = products.Where(y => y.CategoryID == 9);
-            //        break;
-            //}
-
+            //button functionality for 'Order By Name' and 'Order By Price'
             switch (sortOrder)
             {
+                //Category ID must equal 23 due to that being the Electronic Drum Amplifier category
                 case "name_desc":
                     products = products.Where(y => y.CategoryID == 23).OrderByDescending(s => s.ProductName);
                     break;
@@ -141,8 +130,11 @@ namespace MVCShoppingCartApplication.Controllers
                     products = products.Where(y => y.CategoryID == 23).OrderBy(s => s.ProductName);
                     break;
             }
+            //determines number of items on each page
             int pageSize = 3;
+            //defaults the pager to the first page
             int pageNumber = (page ?? 1);
+            //returns only the products with the category id of 23
             return View(products.Where(r => r.CategoryID == 23).ToPagedList(pageNumber, pageSize));
 
         }
@@ -150,51 +142,35 @@ namespace MVCShoppingCartApplication.Controllers
         public ActionResult DrumAccessoriesIndex(string sortOrder, string currentFilter, string searchString, int? page)
         {
 
-            //ViewBag.Category = String.IsNullOrEmpty(categoryChange);
-            //ViewBag.ElectricGuitars = categoryChange == "ElectricGuitars";
-            //ViewBag.AcousticGuitars = categoryChange == "AcousticGuitars";
-
-
-
-            //var mVCProducts = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //return View(mVCProducts.ToList());
+            //Viewbag statements to enable server side sorting
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
-
+            //if the search bar is blank automatically default to the first page
             if (searchString != null)
             {
                 page = 1;
             }
+            //filter the search bar
             else
             {
                 searchString = currentFilter;
             }
 
             ViewBag.CurrentFilter = searchString;
-
+            //LINQ statement to select all of the products from the database
             var products = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //var products = from s in db.MVCProducts
-            //               select s;
-
+            //if the search bar has a value input then show products that contain that search string in the Product Name
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.ProductName.Contains(searchString));
             }
 
-            //switch (categoryChange)
-            //{
-            //    case "ElectricGuitars":
-            //        products = products.Where(y => y.CategoryID == 5);
-            //        break;
-            //    case "AcousticGuitars":
-            //        products = products.Where(y => y.CategoryID == 9);
-            //        break;
-            //}
-
+            //button functionality for 'Order By Name' and 'Order By Price'
             switch (sortOrder)
             {
+                //Category ID must equal 16 due to that being the Drum Accessories category
                 case "name_desc":
                     products = products.Where(y => y.CategoryID == 16).OrderByDescending(s => s.ProductName);
                     break;
@@ -214,8 +190,11 @@ namespace MVCShoppingCartApplication.Controllers
                     products = products.Where(y => y.CategoryID == 16).OrderBy(s => s.ProductName);
                     break;
             }
+            //determines number of items on each page
             int pageSize = 3;
+            //defaults the pager to the first page
             int pageNumber = (page ?? 1);
+            //returns only the products with the category id of 16
             return View(products.Where(r => r.CategoryID == 16).ToPagedList(pageNumber, pageSize));
 
         }
@@ -223,51 +202,34 @@ namespace MVCShoppingCartApplication.Controllers
         public ActionResult MicPreampIndex(string sortOrder, string currentFilter, string searchString, int? page)
         {
 
-            //ViewBag.Category = String.IsNullOrEmpty(categoryChange);
-            //ViewBag.ElectricGuitars = categoryChange == "ElectricGuitars";
-            //ViewBag.AcousticGuitars = categoryChange == "AcousticGuitars";
-
-
-
-            //var mVCProducts = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //return View(mVCProducts.ToList());
+            //Viewbag statements to enable server side sorting
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
-
+            //if the search bar is blank automatically default to the first page
             if (searchString != null)
             {
                 page = 1;
             }
+            //filter the search bar
             else
             {
                 searchString = currentFilter;
             }
 
             ViewBag.CurrentFilter = searchString;
-
+            //LINQ statement to select all of the products from the database
             var products = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //var products = from s in db.MVCProducts
-            //               select s;
-
+            //if the search bar has a value input then show products that contain that search string in the Product Name
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.ProductName.Contains(searchString));
             }
-
-            //switch (categoryChange)
-            //{
-            //    case "ElectricGuitars":
-            //        products = products.Where(y => y.CategoryID == 5);
-            //        break;
-            //    case "AcousticGuitars":
-            //        products = products.Where(y => y.CategoryID == 9);
-            //        break;
-            //}
-
+            //button functionality for 'Order By Name' and 'Order By Price'
             switch (sortOrder)
             {
+                //Category ID must equal 21 due to that being the Mic Preamp category
                 case "name_desc":
                     products = products.Where(y => y.CategoryID == 21).OrderByDescending(s => s.ProductName);
                     break;
@@ -287,9 +249,11 @@ namespace MVCShoppingCartApplication.Controllers
                     products = products.Where(y => y.CategoryID == 21).OrderBy(s => s.ProductName);
                     break;
             }
-
+            //determines number of items on each page
             int pageSize = 3;
+            //defaults the pager to the first page
             int pageNumber = (page ?? 1);
+            //returns only the products with the category id of 21
             return View(products.Where(r => r.CategoryID == 21).ToPagedList(pageNumber, pageSize));
 
         }
@@ -297,51 +261,33 @@ namespace MVCShoppingCartApplication.Controllers
         public ActionResult StudioMonitorIndex(string sortOrder, string currentFilter, string searchString, int? page)
         {
 
-            //ViewBag.Category = String.IsNullOrEmpty(categoryChange);
-            //ViewBag.ElectricGuitars = categoryChange == "ElectricGuitars";
-            //ViewBag.AcousticGuitars = categoryChange == "AcousticGuitars";
-
-
-
-            //var mVCProducts = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //return View(mVCProducts.ToList());
+            //Viewbag statements to enable server side sorting
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
-
+            //if the search bar is blank automatically default to the first page
             if (searchString != null)
             {
                 page = 1;
             }
+            //filter the search bar
             else
             {
                 searchString = currentFilter;
             }
-
             ViewBag.CurrentFilter = searchString;
-
+            //LINQ statement to select all of the products from the database
             var products = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //var products = from s in db.MVCProducts
-            //               select s;
-
-            if (!String.IsNullOrEmpty(searchString))
+            //if the search bar has a value input then show products that contain that search string in the Product Name
+            if (!string.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.ProductName.Contains(searchString));
             }
-
-            //switch (categoryChange)
-            //{
-            //    case "ElectricGuitars":
-            //        products = products.Where(y => y.CategoryID == 5);
-            //        break;
-            //    case "AcousticGuitars":
-            //        products = products.Where(y => y.CategoryID == 9);
-            //        break;
-            //}
-
+            //button functionality for 'Order By Name' and 'Order By Price'
             switch (sortOrder)
             {
+                //Category ID must equal 5 due to that being the Mic Preamp category
                 case "name_desc":
                     products = products.Where(y => y.CategoryID == 18).OrderByDescending(s => s.ProductName);
                     break;
@@ -361,44 +307,45 @@ namespace MVCShoppingCartApplication.Controllers
                     products = products.Where(y => y.CategoryID == 18).OrderBy(s => s.ProductName);
                     break;
             }
+            //determines number of items on each page
             int pageSize = 3;
+            //defaults the pager to the first page
             int pageNumber = (page ?? 1);
+            //returns only the products with the category id of 18
             return View(products.Where(r => r.CategoryID == 18).ToPagedList(pageNumber, pageSize));
 
         }
         //Bass Index
         public ActionResult BassIndex(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            //var mVCProducts = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //return View(mVCProducts.ToList());
+            //Viewbag statements to enable server side sorting
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
-
+            //if the search bar is blank automatically default to the first page
             if (searchString != null)
             {
                 page = 1;
             }
+            //filter the search bar
             else
             {
                 searchString = currentFilter;
             }
-
             ViewBag.CurrentFilter = searchString;
-
+            //LINQ statement to select all of the products from the database
             var products = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //var products = from s in db.MVCProducts
-            //               select s;
-
+            //if the search bar has a value input then show products that contain that search string in the Product Name
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.ProductName.Contains(searchString));
             }
 
-
+            //button functionality for 'Order By Name' and 'Order By Price'
             switch (sortOrder)
             {
+                //Category ID must equal 5 due to that being the Bass category
                 case "name_desc":
                     products = products.Where(y => y.CategoryID == 7).OrderByDescending(s => s.ProductName);
                     break;
@@ -418,42 +365,42 @@ namespace MVCShoppingCartApplication.Controllers
                     products = products.Where(y => y.CategoryID == 7).OrderBy(s => s.ProductName);
                     break;
             }
+            //determines number of items on each page
             int pageSize = 3;
+            //defaults the pager to the first page
             int pageNumber = (page ?? 1);
+            //returns only the products with the category id of 7
             return View(products.Where(r => r.CategoryID == 7).ToPagedList(pageNumber, pageSize));
 
         }
         //Bass Amplifier Cabinets
         public ActionResult BassAmpIndex(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            //var mVCProducts = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //return View(mVCProducts.ToList());
+            //Viewbag statements to enable server side sorting
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
-
+            //if the search bar is blank automatically default to the first page
             if (searchString != null)
             {
                 page = 1;
             }
+            //filter the search bar
             else
             {
                 searchString = currentFilter;
             }
 
             ViewBag.CurrentFilter = searchString;
-
+            //LINQ statement to select all of the products from the databas
             var products = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //var products = from s in db.MVCProducts
-            //               select s;
-
+            //if the search bar has a value input then show products that contain that search string in the Product Name
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.ProductName.Contains(searchString));
             }
-
-
+            //button functionality for 'Order By Name' and 'Order By Price'
             switch (sortOrder)
             {
                 case "name_desc":
@@ -475,42 +422,44 @@ namespace MVCShoppingCartApplication.Controllers
                     products = products.Where(y => y.CategoryID == 12).OrderBy(s => s.ProductName);
                     break;
             }
+            //determines number of items on each page
             int pageSize = 6;
+            //defaults the pager to the first page
             int pageNumber = (page ?? 1);
+            //returns only the products with the category id of 12
             return View(products.Where(r => r.CategoryID == 12).ToPagedList(pageNumber, pageSize));
 
         }
         //Bass Amp Heads
         public ActionResult BassAmpHeadIndex(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            //var mVCProducts = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //return View(mVCProducts.ToList());
+            //Viewbag statements to enable server side sorting
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
-
+            //if the search bar is blank automatically default to the first page
             if (searchString != null)
             {
                 page = 1;
             }
+            //filter the search bar
             else
             {
                 searchString = currentFilter;
             }
 
             ViewBag.CurrentFilter = searchString;
-
+            //LINQ statement to select all of the products from the database
             var products = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //var products = from s in db.MVCProducts
-            //               select s;
 
+            //if the search bar has a value input then show products that contain that search string in the Product Name
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.ProductName.Contains(searchString));
             }
 
-
+            //button functionality for 'Order By Name' and 'Order By Price'
             switch (sortOrder)
             {
                 case "name_desc":
@@ -532,42 +481,44 @@ namespace MVCShoppingCartApplication.Controllers
                     products = products.Where(y => y.CategoryID == 14).OrderBy(s => s.ProductName);
                     break;
             }
+            //determines number of items on each page
             int pageSize = 6;
+            //defaults the pager to the first page
             int pageNumber = (page ?? 1);
+            //returns only the products with the category id of 14
             return View(products.Where(r => r.CategoryID == 14).ToPagedList(pageNumber, pageSize));
 
         }
         //Guitar Accessories
         public ActionResult GuitarAccessoriesIndex(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            //var mVCProducts = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //return View(mVCProducts.ToList());
+            //Viewbag statements to enable server side sorting
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
-
+            //if the search bar is blank automatically default to the first page
             if (searchString != null)
             {
                 page = 1;
             }
+            //filter the search ba
             else
             {
                 searchString = currentFilter;
             }
 
             ViewBag.CurrentFilter = searchString;
-
+            //LINQ statement to select all of the products from the database
             var products = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //var products = from s in db.MVCProducts
-            //               select s;
 
+            //if the search bar has a value input then show products that contain that search string in the Product Name
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.ProductName.Contains(searchString));
             }
 
-
+            //button functionality for 'Order By Name' and 'Order By Price'
             switch (sortOrder)
             {
                 case "name_desc":
@@ -589,42 +540,42 @@ namespace MVCShoppingCartApplication.Controllers
                     products = products.Where(y => y.CategoryID == 10).OrderBy(s => s.ProductName);
                     break;
             }
+            //determines number of items on each page
             int pageSize = 6;
+            //defaults the pager to the first page
             int pageNumber = (page ?? 1);
+            //returns only the products with the category id of 10
             return View(products.Where(r => r.CategoryID == 10).ToPagedList(pageNumber, pageSize));
 
         }
         //Pro Audio
         public ActionResult ProAudioIndex(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            //var mVCProducts = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //return View(mVCProducts.ToList());
+            //Viewbag statements to enable server side sorting
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
-
+            //if the search bar is blank automatically default to the first page
             if (searchString != null)
             {
                 page = 1;
             }
+            //filter the search bar
             else
             {
                 searchString = currentFilter;
             }
 
             ViewBag.CurrentFilter = searchString;
-
+            //LINQ statement to select all of the products from the database
             var products = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //var products = from s in db.MVCProducts
-            //               select s;
-
+            //if the search bar has a value input then show products that contain that search string in the Product Name
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.ProductName.Contains(searchString));
             }
-
-
+            //button functionality for 'Order By Name' and 'Order By Price'
             switch (sortOrder)
             {
                 case "name_desc":
@@ -646,42 +597,44 @@ namespace MVCShoppingCartApplication.Controllers
                     products = products.Where(y => y.CategoryID == 11).OrderBy(s => s.ProductName);
                     break;
             }
+            //determines number of items on each page
             int pageSize = 6;
+            //defaults the pager to the first page
             int pageNumber = (page ?? 1);
+            //returns only the products with the category id of 11
             return View(products.Where(r => r.CategoryID == 11).ToPagedList(pageNumber, pageSize));
 
         }
         //Guitar Amplifiers
         public ActionResult GuitarAmpIndex(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            //var mVCProducts = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //return View(mVCProducts.ToList());
+            //Viewbag statements to enable server side sorting
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
-
+            //if the search bar is blank automatically default to the first page
             if (searchString != null)
             {
                 page = 1;
             }
+            //filter the search bar
             else
             {
                 searchString = currentFilter;
             }
 
             ViewBag.CurrentFilter = searchString;
-
+            //LINQ statement to select all of the products from the database
             var products = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //var products = from s in db.MVCProducts
-            //               select s;
 
+            //if the search bar has a value input then show products that contain that search string in the Product Name
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.ProductName.Contains(searchString));
             }
 
-
+            //button functionality for 'Order By Name' and 'Order By Price'
             switch (sortOrder)
             {
                 case "name_desc":
@@ -703,42 +656,43 @@ namespace MVCShoppingCartApplication.Controllers
                     products = products.Where(y => y.CategoryID == 8).OrderBy(s => s.ProductName);
                     break;
             }
+            //determines number of items on each page
             int pageSize = 6;
+            //defaults the pager to the first page
             int pageNumber = (page ?? 1);
+            //returns only the products with the category id of 5
             return View(products.Where(r => r.CategoryID == 8).ToPagedList(pageNumber, pageSize));
 
         }
         //Guiat Amplifier Heads
         public ActionResult GuitarAmpHeadIndex(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            //var mVCProducts = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //return View(mVCProducts.ToList());
+            //Viewbag statements to enable server side sorting
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
-
+            //if the search bar is blank automatically default to the first page
             if (searchString != null)
             {
                 page = 1;
             }
+            //filter the search bar
             else
             {
                 searchString = currentFilter;
             }
 
             ViewBag.CurrentFilter = searchString;
-
+            //LINQ statement to select all of the products from the database
             var products = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //var products = from s in db.MVCProducts
-            //               select s;
-
+            //if the search bar has a value input then show products that contain that search string in the Product Name
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.ProductName.Contains(searchString));
             }
 
-
+            //button functionality for 'Order By Name' and 'Order By Price'
             switch (sortOrder)
             {
                 case "name_desc":
@@ -760,42 +714,42 @@ namespace MVCShoppingCartApplication.Controllers
                     products = products.Where(y => y.CategoryID == 13).OrderBy(s => s.ProductName);
                     break;
             }
+            //determines number of items on each page
             int pageSize = 6;
+            //defaults the pager to the first page
             int pageNumber = (page ?? 1);
+            //returns only the products with the category id of 13
             return View(products.Where(r => r.CategoryID == 13).ToPagedList(pageNumber, pageSize));
 
         }
         //Acoustic Guitars
         public ActionResult AcousticIndex(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            //var mVCProducts = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //return View(mVCProducts.ToList());
+            //Viewbag statements to enable server side sorting
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
-
+            //if the search bar is blank automatically default to the first page
             if (searchString != null)
             {
                 page = 1;
             }
+            //filter the search bar
             else
             {
                 searchString = currentFilter;
             }
 
             ViewBag.CurrentFilter = searchString;
-
+            //LINQ statement to select all of the products from the database
             var products = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //var products = from s in db.MVCProducts
-            //               select s;
-
+            //if the search bar has a value input then show products that contain that search string in the Product Name
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.ProductName.Contains(searchString));
             }
-
-
+            //button functionality for 'Order By Name' and 'Order By Price'
             switch (sortOrder)
             {
                 case "name_desc":
@@ -817,42 +771,43 @@ namespace MVCShoppingCartApplication.Controllers
                     products = products.Where(y => y.CategoryID == 6).OrderBy(s => s.ProductName);
                     break;
             }
+            //determines number of items on each page
             int pageSize = 6;
+            //defaults the pager to the first page
             int pageNumber = (page ?? 1);
+            //returns only the products with the category id of 5
             return View(products.Where(r => r.CategoryID == 6).ToPagedList(pageNumber, pageSize));
 
         }
         //Drums
         public ActionResult DrumIndex(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            //var mVCProducts = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //return View(mVCProducts.ToList());
+            //Viewbag statements to enable server side sorting
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
-
+            //if the search bar is blank automatically default to the first page
             if (searchString != null)
             {
                 page = 1;
             }
+            //filter the search bar
             else
             {
                 searchString = currentFilter;
             }
 
             ViewBag.CurrentFilter = searchString;
-
-
+            //LINQ statement to select all of the products from the database
             var products = from s in db.MVCProducts
                            select s;
-
+            //if the search bar has a value input then show products that contain that search string in the Product Name
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.ProductName.Contains(searchString));
             }
-
-
+            //button functionality for 'Order By Name' and 'Order By Price'
             switch (sortOrder)
             {
                 case "name_desc":
@@ -874,42 +829,43 @@ namespace MVCShoppingCartApplication.Controllers
                     products = products.Where(y => y.CategoryID == 9).OrderBy(s => s.ProductName);
                     break;
             }
+            //determines number of items on each page
             int pageSize = 6;
+            //defaults the pager to the first page
             int pageNumber = (page ?? 1);
+            //returns only the products with the category id of 9
             return View(products.Where(r => r.CategoryID == 9).ToPagedList(pageNumber, pageSize));
 
         }
         //Electronic Drum Index
         public ActionResult ElectronicDrumIndex(string sortOrder, string currentFilter, string searchString, int? page)
         {
-            //var mVCProducts = db.MVCProducts.Include(m => m.MVCCategory).Include(m => m.MVCStatus).Include(m => m.MVCVendor);
-            //return View(mVCProducts.ToList());
+            //Viewbag statements to enable server side sorting
             ViewBag.CurrentSort = sortOrder;
             ViewBag.NameSortParm = String.IsNullOrEmpty(sortOrder) ? "name_desc" : "";
             ViewBag.DateSortParm = sortOrder == "Date" ? "date_desc" : "Date";
             ViewBag.PriceSortParm = sortOrder == "Price" ? "price_desc" : "Price";
-
+            //if the search bar is blank automatically default to the first page
             if (searchString != null)
             {
                 page = 1;
             }
+            //filter the search bar
             else
             {
                 searchString = currentFilter;
             }
 
             ViewBag.CurrentFilter = searchString;
-
-
+            //LINQ statement to select all of the products from the database
             var products = from s in db.MVCProducts
                            select s;
-
+            //if the search bar has a value input then show products that contain that search string in the Product Name
             if (!String.IsNullOrEmpty(searchString))
             {
                 products = products.Where(s => s.ProductName.Contains(searchString));
             }
-
-
+            //button functionality for 'Order By Name' and 'Order By Price'
             switch (sortOrder)
             {
                 case "name_desc":
@@ -931,8 +887,11 @@ namespace MVCShoppingCartApplication.Controllers
                     products = products.Where(y => y.CategoryID == 15).OrderBy(s => s.ProductName);
                     break;
             }
+            //determines number of items on each page
             int pageSize = 6;
+            //defaults the pager to the first page
             int pageNumber = (page ?? 1);
+            //returns only the products with the category id of 5
             return View(products.Where(r => r.CategoryID == 15).ToPagedList(pageNumber, pageSize));
 
         }
@@ -972,8 +931,7 @@ namespace MVCShoppingCartApplication.Controllers
         {
             if (ModelState.IsValid)
             {
-
-
+                
                 //Autogenerate last updated to be today's date
                 mVCProduct.LastUpdated = DateTime.Now;
 

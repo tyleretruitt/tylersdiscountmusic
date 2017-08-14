@@ -179,6 +179,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Item.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Content Include="Content\comicimage.jpg" />
     <Compile Include="Controllers\MVCProductsController.cs" />
     <Compile Include="Controllers\RolesAdminController.cs" />
     <Compile Include="Controllers\ShoppingController.cs" />
@@ -216,7 +217,6 @@
     <Content Include="Content\fulllogo.png" />
     <Content Include="Content\guitarlogoedit.png" />
     <Content Include="Content\GuitarStore.jpg" />
-    <Content Include="Content\LinkedIn.jpg" />
     <Content Include="Content\Logos\AlesisLogo.jpg" />
     <Content Include="Content\Logos\AlesisLogo.png" />
     <Content Include="Content\Logos\AmpegLogo.png" />
@@ -269,10 +269,8 @@
     <Content Include="Content\PagedList.css" />
     <Content Include="Content\ShoppingPage\css\shop-homepage.css" />
     <Content Include="Content\SortingPaging.jpg" />
-    <Content Include="Content\TylerWestPalmBeachComic.jpg" />
     <Content Include="Content\vintage.jpg" />
     <Content Include="Content\wordsOfLogo.png" />
-    <Content Include="Content\Zakaryme.jpg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -358,7 +356,6 @@
     <Content Include="Views\MVCProducts\BassAmpHeadIndex.cshtml" />
     <Content Include="Views\MVCProducts\ElectronicDrumIndex.cshtml" />
     <Content Include="Views\MVCProducts\BassIndex.cshtml" />
-    <Content Include="Views\Shopping\Index.cshtml" />
     <Content Include="Views\Shopping\Cart.cshtml" />
     <Content Include="Views\Shopping\StaticCart.cshtml" />
     <Content Include="Views\MVCProducts\StudioMonitorIndex.cshtml" />
